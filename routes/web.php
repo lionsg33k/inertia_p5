@@ -19,6 +19,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::get("/product" , [ProductController::class , "index"]);
 Route::post("/product/store" , [ProductController::class , "store"]);
+Route::delete("/product/destroy/{product}" , [ProductController::class , "destroy"]);
+Route::put("/product/update/{product}" , [ProductController::class , "update"]);
 
 
 

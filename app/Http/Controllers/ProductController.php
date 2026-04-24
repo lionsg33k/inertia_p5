@@ -75,6 +75,21 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+
+        
+        $request->validate([
+            "name" => "required",
+            "price" => "required",
+            "stock" => "required",
+        ]);
+
+        $product->update([
+            "name" => $request->name,
+            "price" => $request->price,
+            "stock" => $request->stock,
+        ]);
+
+        return back();
     }
 
     /**
@@ -83,5 +98,10 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+
+
+        $product->delete();
+
+        return back();
     }
 }
